@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import ExcerciseTable from '../../components/ExcerciseTable'
+import { workoutA } from '../../utilities/routines'
 
 export default function App() {
 
     return(
-        <h1>hello world</h1>
+        <ExcerciseTable routine={workoutA} />
     )
 }
