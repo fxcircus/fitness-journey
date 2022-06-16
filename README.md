@@ -1,2 +1,2 @@
 # Fitness Journey
-![Live Heroku Version](https://fitness-mern.herokuapp.com/)
+[Live Heroku Version](https://fitness-mern.herokuapp.com/)
