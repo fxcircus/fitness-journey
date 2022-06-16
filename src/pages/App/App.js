@@ -5,6 +5,9 @@ import { workoutA } from '../../utilities/routines'
 export default function App() {
 
     return(
-        <ExcerciseTable routine={workoutA} />
+        <main>
+            <h1>Workout</h1>
+            <ExcerciseTable routine={workoutA} />
+        </main>
     )
 }
