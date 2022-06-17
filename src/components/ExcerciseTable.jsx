@@ -9,7 +9,7 @@ export default function ExcerciseTable (props) {
             </tr>
             {props.routine.map((set, idx) => {
                 return (
-                    <tr>
+                    <tr key={idx}>
                         <td>{set.excercise}</td>
                         <td>{set.reps}</td>
                     </tr>

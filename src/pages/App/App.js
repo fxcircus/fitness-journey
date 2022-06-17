@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import ExcerciseTable from '../../components/ExcerciseTable'
+import LogTime from '../../components/LogTime'
 import { workoutA } from '../../utilities/routines'
+
 
 export default function App() {
 
@@ -8,6 +10,7 @@ export default function App() {
         <main>
             <h1>Workout</h1>
             <ExcerciseTable routine={workoutA} />
+            <LogTime />
         </main>
     )
 }
