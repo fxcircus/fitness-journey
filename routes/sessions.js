@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {createSession, getSession, updateSession, deleteSession} = require('../controllers/session')
+const {createSession, getSession, updateSession, deleteSession} = require('../controllers/sessions')
 const { create } = require('../models/Session')
 
 router.get("/", getSession)

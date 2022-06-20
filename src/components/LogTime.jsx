@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useState } from 'react'
+import { createSession } from '../utilities/api/session-api'
 
 export default function LogTime (props) {
     
-    const sendData = () => {
-        console.log(Date.now())
+    const sendData = async () => {
+        const timestamp = Date.now()
+        console.log(timestamp)
+        const payload = { "sessionTimestamp": timestamp}
+        const res = await createSession(payload)
     }
 
     return(
