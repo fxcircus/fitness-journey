@@ -1,17 +1,52 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ExcerciseTable from '../../components/ExcerciseTable'
-import LogTime from '../../components/LogTime'
 import Stats from '../../components/Stats'
 import { workoutA } from '../../utilities/data/routines'
+import { getSessions } from '../../utilities/api/session-api'
 
 
 export default function App() {
     const [ render, setRender ] = useState(false)
-    return(
-        <main>
-            <h1>Workout</h1>
-            <ExcerciseTable routine={workoutA} render={render} setRender={setRender} />
-            <Stats render={render} setRender={setRender} />
-        </main>
-    )
+    const [ sessions, setSessions ] = useState([])
+    const [ numOfSessions, setNumOfSessions ] = useState(0)
+    const [ datesThisMonth, setDatesThisMonth ] = useState([])
+    const [ routine, setRoutine ] = useState({})
+
+    const filterThisMonthSessions = (dateArr) => {
+        const res = []
+        dateArr.forEach(date => {
+            console.log(date.sessionTimestamp)
+        })
+    }
+
+    const getAllSessions = async () => {
+        const res = await getSessions()
+        setSessions(res)
+        setNumOfSessions(res.length)
+        filterThisMonthSessions(res)
+        setRoutine(res[res.length - 1])
+        // console.log(res)
+    }
+
+    useEffect(() => {
+        getAllSessions()
+    }, [])
+
+    const loaded = () => {
+        return(
+            <main>
+                <h1>Workout</h1>
+                <ExcerciseTable routine={routine} render={render} setRender={setRender} />
+                <Stats render={render} setRender={setRender} numOfSessions={numOfSessions} />
+            </main>
+        )
+    }
+
+    const loading = () => {
+        return (
+            <h1>loading</h1>
+        )
+    }
+
+    return sessions && routine ? loaded() : loading()
 }
