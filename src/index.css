@@ -20,3 +20,9 @@ th, td {
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.charts {
+    display: flex;
+    /* height: 500px; */
+    width: 50%;
+}
