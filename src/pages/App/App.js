@@ -6,13 +6,13 @@ import { workoutA } from '../../utilities/data/routines'
 
 
 export default function App() {
-
+    const [ render, setRender ] = useState(false)
     return(
         <main>
             <h1>Workout</h1>
-            <ExcerciseTable routine={workoutA} />
-            <LogTime />
-            <Stats />
+            <ExcerciseTable routine={workoutA} render={render} setRender={setRender} />
+            <LogTime render={render} setRender={setRender} />
+            <Stats render={render} setRender={setRender} />
         </main>
     )
 }

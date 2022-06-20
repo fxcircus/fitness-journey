@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createSession } from '../utilities/api/session-api'
 
 export default function LogTime (props) {
@@ -8,7 +8,12 @@ export default function LogTime (props) {
         console.log(timestamp)
         const payload = { "sessionTimestamp": timestamp}
         const res = await createSession(payload)
+        props.setRender(!props.render)
     }
+
+    useEffect(() => {
+        
+    },[props.render])
 
     return(
         <button onClick={(e) => {sendData(e)}}>
