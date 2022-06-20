@@ -18,9 +18,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 // app.use(require('./config/checkToken'))
 
 // API middleware
-// app.use('/api/users', require('./routes/api/users'))
-// app.use('/api/items', require('./routes/api/items'))
-// app.use('/api/projects', require('./routes/api/projects'))
+app.use('/api/session', require('./routes/session'))
 
 // Catch All Route, returns index.html for all non-AJAX requests
 app.get('.*', (req, res) => {
