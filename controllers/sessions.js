@@ -35,9 +35,9 @@ const updateSession = (req, res) => {
 
 // Delete
 const deleteSession = (req, res) => {
-    Session.findOneAndDelete(req.params.id, (err) => {
+    Session.findOneAndDelete(req.params.id, (err, deletedSession) => {
         if (!err) {
-            res.status(200).json({ message: "Deleded session"})
+            res.status(200).json({ message: "Deleded session", deletedSession})
         } else {
             res.status(400).json(err)
         }
