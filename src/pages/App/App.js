@@ -11,7 +11,6 @@ export default function App() {
         <main>
             <h1>Workout</h1>
             <ExcerciseTable routine={workoutA} render={render} setRender={setRender} />
-            <LogTime render={render} setRender={setRender} />
             <Stats render={render} setRender={setRender} />
         </main>
     )

@@ -6,7 +6,10 @@ export default function LogTime (props) {
     const sendData = async () => {
         const timestamp = Date.now()
         console.log(timestamp)
-        const payload = { "sessionTimestamp": timestamp}
+        const payload = {
+            "sessionTimestamp": timestamp,
+            "exercises": props.session
+        }
         const res = await createSession(payload)
         props.setRender(!props.render)
     }
@@ -17,7 +20,7 @@ export default function LogTime (props) {
 
     return(
         <button onClick={(e) => {sendData(e)}}>
-            Log time
+            Save session
         </button>
     )
 }
