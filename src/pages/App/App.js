@@ -42,11 +42,7 @@ export default function App() {
         )
     }
 
-    const loading = () => {
-        return (
-            <h1>loading</h1>
-        )
-    }
+    const loading = () => {return (<h1>loading</h1>)}
 
     return sessions && routine ? loaded() : loading()
 }
