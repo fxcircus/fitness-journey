@@ -25,7 +25,8 @@ export default function App() {
         setNumOfSessions(res.length)
         filterThisMonthSessions(res)
         setRoutine(res[res.length - 1])
-        // console.log(res)
+        console.log('current routine')
+        console.log(routine)
     }
 
     useEffect(() => {

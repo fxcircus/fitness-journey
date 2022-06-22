@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import LogTime from './LogTime'
 
-export default function ExcerciseTable (props) {
+export default function ExcerciseTable ({ routine, render, setRender }) {
     const [ session, setSession ] = useState(null)
     const temp = [{excercise: "Tricep curl", reps: "15"}]
     
     useEffect(() => {
-        setSession(props.routine.exercises)
+        setSession(routine.exercises)
     }, [])
 
     const loaded = () => {
@@ -26,7 +26,7 @@ export default function ExcerciseTable (props) {
                         )
                     })}
                 </table>
-                <LogTime render={props.render} setRender={props.setRender} session={session} isSession='true' />
+                <LogTime render={render} setRender={setRender} session={session} isSession='true' />
             </div>
         )
     }
