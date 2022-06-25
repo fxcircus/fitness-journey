@@ -11,7 +11,7 @@ export default function ExcerciseTable ({ routines, render, setRender }) {
     }, [])
 
     return (
-        <div>
+        <div className="ExcerciseTable">
             <table>
                 <tr>
                     <th>Excercise</th>

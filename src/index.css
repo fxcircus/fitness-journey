@@ -3,14 +3,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;    
 }
 
-main {
+main, .ExcerciseTable {
     display: flex;
     flex-direction: column;
 }
 
 th {
     font-weight: bold;
-    text-align: l;
+    text-align: left;
 }
 
 th, td {
