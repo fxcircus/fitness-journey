@@ -24,5 +24,5 @@ tr:nth-child(even) {
 .charts {
     display: flex;
     /* height: 500px; */
-    width: 50%;
+    width: 100%;
 }

@@ -7,7 +7,7 @@ export default function ExcerciseTable ({ routines, render, setRender }) {
     
     useEffect(() => {
         setSession(routines.exercises)
-        console.log(routines)
+        // console.log(routines)
     }, [])
 
     return (

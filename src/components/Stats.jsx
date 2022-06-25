@@ -6,32 +6,49 @@ import { LineChart } from './LineChart'
 
 export default function Stats ({ render, numOfSessions, sessions}) {
     const [ sessionDays, setSessionDays ] = useState([])
+    const [ sessionExcs, setSessionExcs ] = useState(null)
 
-    const filterDays = (sessionArr) => {
-        const arr = []
+    const filterSessionData = (sessionArr) => {
+        const datesArr = []
+        const excArr = []
         sessionArr.forEach(curSession => {
+            // console.log(curSession)
             const newDate = curSession.sessionTimestamp.slice(0,10)
-            if (!arr.includes(newDate)) {
-                arr.push(newDate)
+            const newExc = curSession.exercises
+            if (!datesArr.includes(newDate)) {
+                datesArr.push(newDate)
+                if (newExc.length !== 0){
+                    newExc.timestamp = newDate
+                    excArr.push(newExc)
+                }
+                // console.log(`pushing ${newExc}`)
             }
-            
         })
-        // console.log(arr)
-        setSessionDays(arr)
+        setSessionDays(datesArr)
+        setSessionExcs(excArr)
+        console.log(excArr)
     }
 
     useEffect(() => {
-        filterDays(sessions)
+        filterSessionData(sessions)
     }, [render])
 
-    return (
-        <div className='Stats'>
-            <h3>Completed {numOfSessions} sessions!</h3>
-            {/* <Doughnut data={data} /> */}
-            <div className='charts'>
-                <LineChart dates={sessionDays}/>
-                {/* <LineChart /> */}
+    const loaded = () => {
+        return (
+            <div className='Stats'>
+                <h3>Completed {numOfSessions} sessions!</h3>
+                {/* <Doughnut data={data} /> */}
+                <div className='charts'>
+                    <LineChart dates={sessionDays} excs={sessionExcs}/>
+                    {/* <LineChart /> */}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+    const loading = () => {
+        return
+    }
+
+    return sessionExcs ? loaded() : loading()
 }
