@@ -10,7 +10,7 @@ export default function App() {
     const [ sessions, setSessions ] = useState([])
     const [ numOfSessions, setNumOfSessions ] = useState(0)
     const [ datesThisMonth, setDatesThisMonth ] = useState([])
-    const [ routine, setRoutine ] = useState({})
+    const [ routine, setRoutine ] = useState(null)
 
     const filterThisMonthSessions = (dateArr) => {
         const res = []
@@ -24,7 +24,8 @@ export default function App() {
         setSessions(res)
         setNumOfSessions(res.length)
         filterThisMonthSessions(res)
-        setRoutine(res[res.length - 1])
+        const lastItemIdx = res.length - 1
+        setRoutine(res[lastItemIdx])
         console.log('current routine')
         console.log(routine)
     }
@@ -37,7 +38,7 @@ export default function App() {
         return(
             <main>
                 <h1>Workout</h1>
-                <ExcerciseTable routine={routine} render={render} setRender={setRender} />
+                <ExcerciseTable routines={routine} render={render} setRender={setRender} />
                 <Stats render={render} setRender={setRender} numOfSessions={numOfSessions} />
             </main>
         )
