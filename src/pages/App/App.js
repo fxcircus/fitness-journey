@@ -15,7 +15,7 @@ export default function App() {
     const filterThisMonthSessions = (dateArr) => {
         const res = []
         dateArr.forEach(date => {
-            console.log(date.sessionTimestamp)
+            // console.log(date.sessionTimestamp)
         })
     }
 
@@ -26,8 +26,8 @@ export default function App() {
         filterThisMonthSessions(res)
         const lastItemIdx = res.length - 1
         setRoutine(res[lastItemIdx])
-        console.log('current routine')
-        console.log(routine)
+        // console.log('current routine')
+        // console.log(routine)
     }
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function App() {
             <main>
                 <h1>Workout</h1>
                 <ExcerciseTable routines={routine} render={render} setRender={setRender} />
-                <Stats render={render} setRender={setRender} numOfSessions={numOfSessions} />
+                <Stats render={render} setRender={setRender} numOfSessions={numOfSessions} sessions={sessions} />
             </main>
         )
     }
