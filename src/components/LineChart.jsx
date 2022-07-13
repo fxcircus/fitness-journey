@@ -88,7 +88,8 @@ export function LineChart({ dates, excs }) {
   }
 
   const getDataSets = (sessionData) => {
-    console.log(sessionData)
+    // console.log(`sessionData=`)
+    // console.log(sessionData)
     const arr = []
     sessionData.forEach(fullSession => {
       fullSession.forEach((set, index) => {

@@ -13,21 +13,23 @@ export default function ExcerciseTable ({ routines, render, setRender }) {
     return (
         <div className="ExcerciseTable">
             <table>
-                <tr>
-                    <th>Excercise</th>
-                    <th>Reps</th>
-                </tr>
-                {session ? 
-                session.map((set, idx) => {
-                    return (
-                        <tr key={idx}>
-                            <td>{set.excercise}</td>
-                            <td>{set.reps}</td>
-                        </tr>
-                    )
-                })
-                :
-                "loading sessions"}
+                <tbody>
+                    <tr>
+                        <th>Excercise</th>
+                        <th>Reps</th>
+                    </tr>
+                    {session ? 
+                    session.map((set, idx) => {
+                        return (
+                            <tr key={idx}>
+                                <td>{set.excercise}</td>
+                                <td>{set.reps}</td>
+                            </tr>
+                        )
+                    })
+                    :
+                    <tr><td>"loading sessions"</td></tr>}
+                </tbody>
             </table>
             <LogTime render={render} setRender={setRender} session={session} isSession='true' />
         </div>
