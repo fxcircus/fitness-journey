@@ -12,6 +12,7 @@ export default function Stats ({ render, numOfSessions, sessions}) {
         const datesArr = []
         const excArr = []
         // Instead of object with daily session, I want object with 1 ex on all dates
+        // Need to redo the object
         sessionArr.forEach(curSession => {
             // console.log(curSession)
             const newDate = curSession.sessionTimestamp.slice(0,10)
@@ -27,7 +28,7 @@ export default function Stats ({ render, numOfSessions, sessions}) {
         })
         setSessionDays(datesArr)
         setSessionExcs(excArr)
-        // console.log(excArr)
+        console.log(`excArr = `,excArr)
     }
 
     useEffect(() => {

@@ -26,8 +26,8 @@ export default function App() {
         filterThisMonthSessions(res)
         const lastItemIdx = res.length - 1
         setRoutine(res[lastItemIdx])
-        // console.log('current routine')
-        // console.log(routine)
+        console.log(`sessions from DB:`,sessions)
+        console.log('current routine',routine)
     }
 
     useEffect(() => {
